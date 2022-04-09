@@ -1,6 +1,26 @@
 <?php
 
 include "head.php";
+require "conn.php";
+require "clan.php";
+require "bicikla.php";
+
+if(isset($_POST['submit'])){
+
+$opis = $_POST['opis'];
+$imeprezime=$_POST['imeprezime'];
+$minuti = $_POST['minuti'];
+$cena = $_POST['cena'];
+
+$sql = "INSERT INTO iznajmljivanja(id,imeprezime,opis,minuti,cena) VALUES ('','$imeprezime', '$opis','$minuti','$cena')  ";
+if(!mysqli_query($conn,$sql))
+{
+  echo "Data is not inserted";
+}
+else{
+  echo "Data is inserted";
+}
+}
 
 ?>
 
@@ -26,8 +46,8 @@ include "head.php";
 <body>
 
 <div class="container">
-
-<form action="insert.php" method="post">
+<!--
+<form >
 
     <div class="form-group">
 
@@ -48,10 +68,82 @@ include "head.php";
 <button type="submit" name="submit">Submit</button>
 
 </form>
+-->
+
+
+
+   
+<form action="" method="POST">
+
+<div class="column is-10">
+
+<div class="select">
+
+<select name="imeprezime" id="imeprezime">
+
+<?php
+
+
+$query = "SELECT imeprezime FROM clanovi";
+$result = mysqli_query($conn,$query);
+?>
+<?php
+while($row=mysqli_fetch_array($result)){
+
+
+
+?>
+
+<option value="<?php echo $row['imeprezime'];?>"> <?php echo $row['imeprezime'];?>  </option>
+
+<?php }?>
+
+</select>
+
+<br>
+<select name="opis" id="opis">
+<?php
+
+
+$query = "SELECT opis FROM bicikle";
+$result = mysqli_query($conn,$query);
+?>
+
+<?php
+while($row=mysqli_fetch_array($result)){
+
+?>
+
+<option value="<?php echo $row['opis'];?>"> <?php echo $row['opis'];?>  </option>
+
+<?php }?>
+
+</select>
+
+<br>
+
+<div class="form-group">
+
+    <label for="">Minuti: <input type="text" name="minuti" class="form-control"> </label>
+
+    </div>
+
+    <div class="form-group">
+
+<label for=""> Cena: <input type="text" name="cena" class="form-control"> </label>
 
 </div>
-   
 
+<input type="submit" name="submit" value="Submit">
+
+</div>
+
+</div>
+
+
+</div>
+
+</form>
 
 
 <!--
@@ -83,8 +175,30 @@ include "head.php";
 </form>
 -->
 
+<!--
+<form action="" method="POST">
+<select name="opis" >
+
+<?php
+$query = "SELECT opis FROM bicikle";
+$result = mysqli_query($conn,$query);
+while($row=mysqli_fetch_array($result)){
+  ?>
 
 
+<option value="<?php echo $row['opis'];?>"> <?php echo $row['opis'];?>  </option>
+<?php
+}
+
+?>
+
+</select>
+
+<button type="submit"  name="submit">Submit</button>
+
+</form>
+
+-->
 </div>
 </body>
 </html>

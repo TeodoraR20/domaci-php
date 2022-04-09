@@ -12,6 +12,19 @@ header('Location:index.php');
 exit();
 }
 */
+
+require "conn.php";
+
+require "bicikla.php";
+
+$bicikle = Bicikla::vratiSveBicikle($conn);
+
+if(!$bicikle){
+  echo "Greska";
+  die();
+}
+
+else{
 ?>
 
 
@@ -62,13 +75,104 @@ body {
 -->
 
 
+<h1 style=" text-align:center">Bicikle</h1>
+
+
+<div class="container">
+<div class="row justify-content-center">
+<form action="index.php" method="post">
+<div class="form-group">
+
+    <label for=""> Pronadji biciklu: <input type="text"  id="search" class="form-control" placeholder="Pretraga po opisu"> </label>
+<button class="btn btn-primary">Pretraga</button>
+    </div>
+
+    </form>
+
+    </div>
+</div>
+<br>
 
 
 
+<div class="container">
+<table class="table table-success table-striped">
+  
+<thead>
+    <tr>
+      <th scope="col">Redni broj</th>
+      <th scope="col">Slika</th>
+      <th scope="col">Opis</th>
+      <th scope="col">Lokacija</th>
+      
+    </tr>
+  </thead>
+  <tbody id="output">
+<?php 
+
+$sr=1;
+while($row=$bicikle->fetch_array()){?>
+
+    <tr>
+      <!--<th scope="row">1</th>-->
+     <td><?php echo $sr; ?></td> 
+      <td>  
+    <img src="data:image/jpg;charset=utf8;base64,<?php  echo base64_encode($row['slika']); ?>" width="200" height="100">
+      </td>
+      <td><?php echo $row["opis"] ?></td>
+      <td><?php echo $row["lokacije"] ?></td>
+      
+      
+    </tr>
+    
+    
+  </tbody>
+<?php
+
+$sr++;
+
+}
+?>
+
+</table>
 
 
 
+</div>
 
+<?php
+
+}
+?>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+$("#search").keypress(function(){
+
+$.ajax({
+
+type:'POST',
+url:'pretraga.php',
+data:{
+  name:$("#search").val(),
+},
+
+success:function(data){
+  $("#output").html(data);
+}
+
+});
+
+});
+
+
+});
+
+</script>
 
 </body>
 </html>
+
+

@@ -77,18 +77,13 @@ include "head.php";?>
     <label for="telefon" class="form-label">Telefon:</label>
     <input type="text" class="form-control" id="telefon" placeholder="Unesite telefon" name="telefon">
   </div>
-
   <div class="mb-3">
     <label for="godine" class="form-label">Godine:</label>
     <input type="text" class="form-control" id="godine" placeholder="Unesite godine" name="godine">
   </div>
-
-
   <button type="submit" class="btn btn-primary">Dodaj clana</button>
 </form>
-
 </div>
-
 -->
 
 <?php
@@ -100,6 +95,20 @@ include "head.php";?>
 
 ?>
 
+
+<?php
+if(isset($_SESSION['message'])):
+?>
+
+<div class="alert alert-<?=$_SESSION['msg_type']?>">
+
+<?php
+echo $_SESSION['message'];
+unset ($_SESSION['message']);
+
+?>
+</div>
+<?php endif?>
 
 <div class="container">
 
@@ -164,8 +173,8 @@ while($row=$clanovi->fetch_array()){
 
         <td>
 
-<a href="clanovi.php?edit=<?php echo $row['idclana'];?>" class="btn btn-info">Izmeni</a>
-<a href="delete.php?delete=<?php echo $row['idclana'];?>" class="btn btn-danger">Obrisi</a>
+<a href="clanovi.php?edit=<?php echo $row['id'];?>" class="btn btn-info">Izmeni</a>
+<a href="delete.php?delete=<?php echo $row['id'];?>" class="btn btn-danger">Obrisi</a>
 
         </td>
        
@@ -173,12 +182,29 @@ while($row=$clanovi->fetch_array()){
       
     </tbody>
 
+
+
+
     <?php 
   $sr++;
   
   } ?>
   </table>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+
+
+
 </div>
+
+
+
+
 
 </body>
 </html>
@@ -188,4 +214,5 @@ while($row=$clanovi->fetch_array()){
 
 <?php } ?>   
 </body>
-</html> 
+</html>
+

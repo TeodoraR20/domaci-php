@@ -13,6 +13,9 @@ $conn = new mysqli($server,$username,$password,$dbname);
 require "conn.php";
 
 require "clan.php";
+
+session_start();
+
 if(!$conn){
     echo "There are some problems with connecting the database.";
 }
@@ -31,6 +34,8 @@ if(isset($_POST['submit'])){
         $godine = $_POST['godine']; 
 
 
+
+
        // $sql = "INSERT INTO clanovi(imeprezime,email,adresa,telefon,godine) VALUES ('$imeprezime','$email','$adresa','$telefon','$godine')";
     $clan = new Clan(null,$imeprezime,$email,$adresa, $telefon,$godine);
 
@@ -42,7 +47,10 @@ if(isset($_POST['submit'])){
             echo "There are some problems with data";
         }else{
            // echo "Data inserted";
-        
+
+           $_SESSION['message']="Clan je uspesno sacuvan";
+$_SESSION['msg_type'] = "success";
+
             header('Location: clanovi.php');
         }
 
