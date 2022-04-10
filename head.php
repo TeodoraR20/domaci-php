@@ -29,9 +29,15 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="modal.php">Modal</a>
+          <a class="nav-link" href="pretragakorisnika.php">Pretrazi korisnike</a>
           
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="pretragakorisnika2.php">Pretraga 2</a>
+          
+        </li>
+
       </ul>
       
     </div>
