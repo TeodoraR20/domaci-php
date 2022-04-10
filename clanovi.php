@@ -8,11 +8,7 @@ session_start();
 
 //vrati sve clanove iz baze
 
-$imeprezime = '';
-$email = '';
-$adresa = '';
-$telefon = '';
-$godine = '';
+
 
 
 $clanovi = Clan::vratiSve($conn);
@@ -130,17 +126,17 @@ unset ($_SESSION['message']);
 
     <div class="form-group">
 
-    <label for=""> Ime i prezime: <input type="text" name="imeprezime" value="<?php echo $imeprezime;?>" class="form-control"> </label>
+    <label for=""> Ime i prezime: <input type="text" name="imeprezime"  class="form-control"> </label>
 
     </div>
 
 <div class="form-group">
-<label for=""> Email: <input type="email" value="<?php echo $email;?>" name="email" class="form-control">  </label>
+<label for=""> Email: <input type="email"  name="email" class="form-control">  </label>
 </div>
 
-<div class="form-group"><label for=""> Adresa: <input type="text" value="<?php echo $adresa;?>" name="adresa" class="form-control">  </label></div>
-<div class="form-group"><label for=""> Telefon: <input type="text" value="<?php echo $telefon;?>" name="telefon" class="form-control">  </label></div>
-<div class="form-group"><label for=""> Godine: <input type="text" value="<?php echo $godine;?>" name="godine" class="form-control">  </label></div>
+<div class="form-group"><label for=""> Adresa: <input type="text"  name="adresa" class="form-control">  </label></div>
+<div class="form-group"><label for=""> Telefon: <input type="text"  name="telefon" class="form-control">  </label></div>
+<div class="form-group"><label for=""> Godine: <input type="text"  name="godine" class="form-control">  </label></div>
 
 
 <div class="form-group">
@@ -185,7 +181,7 @@ while($row=$clanovi->fetch_array()){
 
         <td>
  
-<a href="edit.php?edit=<?php echo $row['id'];?>" class="btn btn-info">Izmeni</a>
+<a href="edit.php?editid=<?php echo $row['id'];?>" class="btn btn-info">Izmeni</a>
 <a href="delete.php?delete=<?php echo $row['id'];?>" class="btn btn-danger">Obrisi</a>
 
         </td>
@@ -262,23 +258,7 @@ while($row=$clanovi->fetch_array()){
 
 
 
-<script type="text/javascript">
 
-$(document).ready(function(e){
-
-
-
-});
-
-
-$('#btn').on('click',function(){
-
-$('#exampleModal').modal('show');
-});
-
-
-
-</script>
 
 </body>
 </html>
