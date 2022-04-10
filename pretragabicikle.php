@@ -32,7 +32,7 @@ include "head.php";
 
 <div  class="text-center mt-5 mb-4">
 
-<h2>Pretraga clanova</h2>
+<h2>Pretraga bicikle</h2>
 
 </div>
 
@@ -66,7 +66,7 @@ if(input !=""){
 
 $.ajax({
 
-url:"pretraga.php",
+url:"pretraga3.php",
 method:"POST",
 data:{input:input},
 

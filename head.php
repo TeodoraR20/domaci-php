@@ -34,7 +34,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="pretragakorisnika2.php">Pretraga 2</a>
+          <a class="nav-link" href="pretragabicikle.php">Pretrazi bicikle i lokacije</a>
           
         </li>
 
