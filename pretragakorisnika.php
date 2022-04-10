@@ -28,64 +28,72 @@ include "head.php";
 <body>
   
 
-<div class="container">
+<div class="container" style="max-width: 50%;">
 
-<br>
+<div  class="text-center mt-5 mb-4">
 
-<h2 align="center">Pretraga clanova</h2>
-
-
-<div class="form-group">
-
-<div class="input-group">
-
-<span class="input-group-addon"> Pretrazi </span> <br>
-<input type="text" name="search_text" id="search_text" placeholder="Pretrazi korisnika" class="form-control">
+<h2>PHP MySQL Live Search</h2>
 
 </div>
 
+<input type="text" class="form-control" id="live_search" autocomplete="off" placeholder="Search...">
+
+
+
+
+
 </div>
 
-<br>
 
-<div id="result"></div>
+<div id="searchresult">
+
+
 
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+$("#live_search").keyup(function(){
+
+var input = $(this).val();
+//alert(input);
+
+if(input !=""){
+
+$.ajax({
+
+url:"pretraga2.php",
+method:"POST",
+data:{input:input},
+
+success:function(data){
+
+$("#searchresult").html(data);
+$("#searchresult").css("display","block");
+
+}
+
+});
+
+}else{
+
+
+    $("#searchresult").css("display","none");
+
+}
+
+});
+
+});
+
+</script>
+
 
 </body>
 </html>
 
-<script>
-$(document).ready(function(){
 
-$('#search_text').keyup(function(){
-
-var txt = $(this).val();
-
-if(txt !='')
-{
-  $('#result').html('');
-  $.ajax({
-
-url:"fetch.php";
-method:"post",
-data:{search:txt},
-dataType:"text",
-success:function(data)
-{
-  $('#result').html(data);
-}
-
-}else{
-  
-
-  });
-}
-
-
-});
-
-});
-
-
-</script>

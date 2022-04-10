@@ -1,34 +1,76 @@
 <?php
 
-require "conn.php";
+include "conn.php";
 
-$sql = "SELECT * FROM bicikle WHERE opis LIKE'%".$_POST['name']."%' ";
+if(isset($_POST['input'])){
 
-$result = mysqli_query($conn,$sql);
+$input = $_POST['input'];
 
-if(mysqli_num_rows($result)>0){
+$query = "SELECT * FROM clanovi WHERE imeprezime LIKE '{$input}%' OR adresa LIKE '{$input}%' OR email LIKE '{$input}%' OR telefon LIKE '{$input}%' OR godine LIKE '{$input}%'";
 
-while($row=mysqli_fetch_assocc($result)){
 
-echo "
+
+$result = mysqli_query($conn,$query);
+
+if(mysqli_num_rows($result)>0){ ?>
+
+<table class="table table-bordered table-striped mt-4">
+
+<thead>
 
 <tr>
-<td>".$row['slika']."</td>
-<td>".$row['opis']."</td>
-<td>".$row['lokacija']."</td>
+    <th>ID</th>
+    <th>Ime i prezime</th>
+    <th>Email</th>
+    <th>Adresa</th>
+    <th>Telefon</th>
+    <th>Godine</th>
+</tr>
+
+</thead>
+<tbody>
+
+<?php while($row = mysqli_fetch_assoc($result)){
+    
+$id = $row['id'];
+$imeprezime = $row['imeprezime'];
+$email = $row['email'];
+$adresa = $row['adresa'];
+$telefon = $row['telefon'];
+$godine = $row['godine'];
+
+?>
+
+<tr>
+
+<td>  <?php  echo $id; ?> </td>
+<td>  <?php  echo $imeprezime; ?> </td>
+<td>  <?php  echo $email; ?> </td>
+<td>  <?php  echo $adresa; ?> </td>
+<td>  <?php  echo $telefon; ?> </td>
+<td>  <?php  echo $godine; ?> </td>
 
 </tr>
 
-";
+<?php
+}
+ ?>
+
+</tbody>
+
+
+</table>
+
+
+<?php
+
+}else{
+
+echo "<h6 class='text-danger text-center mt-3'>Nisu pronadjeni podaci</h6>";
+
+}
 
 
 }
 
-}
-
-else{
-
-echo "<tr><td>0 result found</td></tr>";
-
-}
 ?>
