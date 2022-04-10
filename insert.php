@@ -16,6 +16,13 @@ require "clan.php";
 
 session_start();
 
+
+$imeprezime = '';
+$email = '';
+$adresa = '';
+$telefon = '';
+$godine = '';
+
 if(!$conn){
     echo "There are some problems with connecting the database.";
 }

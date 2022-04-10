@@ -28,7 +28,10 @@
           
         </li>
         
-        
+        <li class="nav-item">
+          <a class="nav-link" href="modal.php">Modal</a>
+          
+        </li>
       </ul>
       
     </div>

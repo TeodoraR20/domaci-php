@@ -6,6 +6,12 @@ require "clan.php";
 
 session_start();
 
+$imeprezime = '';
+$email = '';
+$adresa = '';
+$telefon = '';
+$godine = '';
+
 if(isset($_GET['delete'])){
 
 $id = $_GET['delete'];
