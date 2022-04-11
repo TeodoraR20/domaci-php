@@ -14,7 +14,7 @@ $result = mysqli_query($conn,$query);
 
 if(mysqli_num_rows($result)>0){ ?>
 
-<table class="table table-bordered table-striped mt-4">
+<table class="table table-success table-striped">
 
 <thead>
 

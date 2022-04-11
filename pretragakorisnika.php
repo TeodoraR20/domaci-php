@@ -24,6 +24,18 @@ include "head.php";
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
+<style>
+
+body {
+  background-image: url("img/plava.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
+</style>
+
+
 </head>
 <body>
   
@@ -32,7 +44,7 @@ include "head.php";
 
 <div  class="text-center mt-5 mb-4">
 
-<h2>Pretraga clanova</h2>
+<h2>Pretraga članova</h2>
 
 </div>
 

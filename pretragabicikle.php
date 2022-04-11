@@ -24,6 +24,18 @@ include "head.php";
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
+
+<style>
+
+body {
+  background-image: url("img/bike.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
+</style>
+
 </head>
 <body>
   

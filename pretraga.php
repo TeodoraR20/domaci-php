@@ -6,7 +6,7 @@ if(isset($_POST['input'])){
 
 $input = $_POST['input'];
 
-$query = "SELECT * FROM clanovi WHERE imeprezime LIKE '{$input}%' OR adresa LIKE '{$input}%' OR email LIKE '{$input}%' OR telefon LIKE '{$input}%' OR godine LIKE '{$input}%'";
+$query = "SELECT * FROM clanovi WHERE imeprezime LIKE '%{$input}%' OR adresa LIKE '%{$input}%' OR email LIKE '%{$input}%' OR telefon LIKE '%{$input}%' OR godine LIKE '%{$input}%'";
 
 
 
@@ -14,7 +14,7 @@ $result = mysqli_query($conn,$query);
 
 if(mysqli_num_rows($result)>0){ ?>
 
-<table class="table table-bordered table-striped mt-4">
+<table class="table table-success table-striped">
 
 <thead>
 
