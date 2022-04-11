@@ -31,7 +31,7 @@ if($result){
 
 //echo "Updated successfully";
 
-header('Location:modal.php');
+header('Location:clanovi.php');
 
 }else{
     //die(mysqli_error($conn));

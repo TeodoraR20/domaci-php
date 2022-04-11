@@ -18,7 +18,11 @@ if(!mysqli_query($conn,$sql))
   echo "Data is not inserted";
 }
 else{
-  echo "Data is inserted";
+  //echo "Data is inserted";
+$alert = "<script> alert('Data is inserted');  </script>";
+echo $alert;
+
+//header('Location: iznajmi.php');
 }
 }
 
@@ -41,46 +45,48 @@ else{
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 
+  
+
+    <style>
+
+body {
+  background-image: url("img/iznajmi2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 500px;
+}
+
+p{
+
+margin-top: 45px;
+
+}
+
+h2{
+margin-top:10px;
+
+}
+
+</style>
+
     <title>Document</title>
 </head>
 <body>
 
 <div class="container">
-<!--
-<form >
 
-    <div class="form-group">
-
-    <label for=""> Ime i prezime: <input type="text" name="imeprezime"> <br> </label>
-
-    </div>
-
-<div class="form-group">
-<label for=""> Email: <input type="email" name="email"> <br> </label><br>
-</div>
-
-<div class="form-group"><label for=""> Adresa: <input type="text" name="adresa"> <br> </label><br></div>
-<div class="form-group"><label for=""> Telefon: <input type="text" name="telefon"> <br> </label><br></div>
-<div class="form-group"><label for=""> Godine: <input type="text" name="godine"> <br> </label><br></div>
-
-
-
-<button type="submit" name="submit">Submit</button>
-
-</form>
--->
-
-
+<h2 align="center">Iznajmi biciklu</h2>
 
    
-<form action="" method="POST">
+<form action="" method="POST" align="center">
 
 <div class="column is-10">
 
 <div class="select">
 
-<select name="imeprezime" id="imeprezime">
-
+<p> Ime i prezime člana: <br>
+<select name="imeprezime" id="imeprezime">  </p> <br>
+ <br>
 <?php
 
 
@@ -101,7 +107,9 @@ while($row=mysqli_fetch_array($result)){
 </select>
 
 <br>
-<select name="opis" id="opis">
+
+<label for="">Bicikla:</label> <br>
+<select name="opis" id="opis"> 
 <?php
 
 
@@ -120,7 +128,9 @@ while($row=mysqli_fetch_array($result)){
 
 </select>
 
-<br>
+
+
+
 
 <div class="form-group">
 
@@ -133,8 +143,8 @@ while($row=mysqli_fetch_array($result)){
 <label for=""> Cena: <input type="text" name="cena" class="form-control"> </label>
 
 </div>
-
-<input type="submit" name="submit" value="Submit">
+<br>
+<input type="submit" class="btn btn-primary" name="submit" value="Iznajmi">
 
 </div>
 

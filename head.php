@@ -16,9 +16,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Početna</a>
-        </li>
+       
         <li class="nav-item">
           <a class="nav-link" href="clanovi.php">Članovi</a>
           
@@ -29,12 +27,12 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" href="pretragakorisnika.php">Pretrazi korisnike</a>
+          <a class="nav-link" href="pretragakorisnika.php">Pretraga korisnika</a>
           
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="pretragabicikle.php">Pretrazi bicikle i lokacije</a>
+          <a class="nav-link" href="pretragabicikle.php">Pretraga bicikli</a>
           
         </li>
 

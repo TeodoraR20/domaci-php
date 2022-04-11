@@ -80,16 +80,7 @@ body {
 
 <div class="container">
 <div class="row justify-content-center">
-<form action="index.php" method="post">
-<div class="form-group">
 
-    <label for=""> Pronadji biciklu: <input type="text"  id="search" class="form-control" placeholder="Pretraga po opisu"> </label>
-<button class="btn btn-primary">Pretraga</button>
-    </div>
-
-    </form>
-
-    </div>
 </div>
 <br>
 

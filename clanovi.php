@@ -65,29 +65,7 @@ include "head.php";?>
 <h1 style="text-align:center;">Članovi</h1>
 
 
-<!--
-<form action="/action_page.php">
-  <div class="mb-3 mt-3">
-    <label for="name" class="form-label">Ime i prezime:</label>
-    <input type="text" class="form-control" id="name" placeholder="Unesite ime i prezime" name="name">
-  </div>
-  <div class="mb-3">
-    <label for="adresa" class="form-label">Adresa:</label>
-    <input type="text" class="form-control" id="adresa" placeholder="Unesite adresu" name="adresa">
-  </div>
- 
-  <div class="mb-3">
-    <label for="telefon" class="form-label">Telefon:</label>
-    <input type="text" class="form-control" id="telefon" placeholder="Unesite telefon" name="telefon">
-  </div>
-  <div class="mb-3">
-    <label for="godine" class="form-label">Godine:</label>
-    <input type="text" class="form-control" id="godine" placeholder="Unesite godine" name="godine">
-  </div>
-  <button type="submit" class="btn btn-primary">Dodaj clana</button>
-</form>
-</div>
--->
+
 
 <?php
 
@@ -117,7 +95,7 @@ unset ($_SESSION['message']);
 
 <div class="row justify-content-center">
 
-<form action="insert.php" method="post">
+<form action="insert.php" method="post" align="center">
 
 
 
@@ -138,20 +116,21 @@ unset ($_SESSION['message']);
 <div class="form-group"><label for=""> Telefon: <input type="text"  name="telefon" class="form-control">  </label></div>
 <div class="form-group"><label for=""> Godine: <input type="text"  name="godine" class="form-control">  </label></div>
 
-
+<br>
 <div class="form-group">
 
-<button type="submit"  name="submit">Dodaj clana</button>
+<button type="submit"  name="submit" class="btn btn-primary">Dodaj clana</button>
 
 </div>
 
-
+<br>
 </form>
 
 </div>
 
 
-  <table class="table table-striped">
+  <table class="table table-success table-striped ">
+  
     <thead>
       <tr>
         <th>Redni broj</th>
@@ -201,58 +180,8 @@ while($row=$clanovi->fetch_array()){
 
 
 
-<!-- Button trigger modal 
-<button type="button" class="btn btn-primary" id="btn" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
--->
-<!-- Modal -->
-<!--
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      
-<div class="row">
-
-<input type="hidden" id="id_edit">
-
-<div class="form-group">
-
-<label for=""> Ime i prezime: <input type="text" name="imeprezime" class="form-control"> </label>
-
-</div>
-
-<div class="form-group">
-<label for=""> Email: <input type="email" name="email" class="form-control">  </label>
-</div>
-
-<div class="form-group"><label for=""> Adresa: <input type="text" name="adresa" class="form-control">  </label></div>
-<div class="form-group"><label for=""> Telefon: <input type="text" name="telefon" class="form-control">  </label></div>
-<div class="form-group"><label for=""> Godine: <input type="text" name="godine" class="form-control">  </label></div>
 
 
-<div class="form-group">
-
-
-</div>
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary update">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
--->
 
 </div>
 
